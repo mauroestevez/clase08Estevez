@@ -38,6 +38,23 @@ while(clientes.includes(entrada) == false){
 console.log("Bienvenid@ " + entrada + " !!");
 
 
+// Creamos una variable para la etiqueta "body"
+
+let padre = document.getElementById("container");
+
+// Creamos un nuevo elemento para incorporar al HTML
+
+let bienvenida = document.createElement("p");
+
+// Le colocamos un contenido
+
+bienvenida.innerHTML = "Bienvenid@ " + entrada + " !!";
+
+// Le asignamos como padre la etiqueta "body"
+
+padre.append(bienvenida);
+
+
 // Asignamos las dos variables principales interactuando con el usuario
 
 let monto = parseInt(prompt("Ingrese el monto que necesita:"));
@@ -56,6 +73,12 @@ let montoTotal = interes(monto);
 
 console.log("La tasa de interés es del 36%, por lo que el monto total a abonar será de " + montoTotal + " pesos");
 
+// Proceso de creacion de elemento para incorporar al HTML
+
+let avisoMontoTotal = document.createElement("p");
+avisoMontoTotal.innerHTML =  "La tasa de interés es del 36%, por lo que el monto total a abonar será de " + montoTotal + " pesos";
+padre.append(avisoMontoTotal);
+
 // Le pedimos al cliente que elija la cantidad de cuotas
 
 let cantidadCuotas = parseInt(prompt("Ingrese cantidad de cuotas (3, 9 o 12)"));
@@ -71,6 +94,12 @@ while((cantidadCuotas != 3) && (cantidadCuotas != 9) && (cantidadCuotas != 12)){
 
 console.log("Usted ha seleccionado " + cantidadCuotas + " cuotas");
 
+// Proceso de creacion de elemento para incorporar al HTML
+
+let avisoCantidadCuotas = document.createElement("p");
+avisoCantidadCuotas.innerHTML = "Usted ha seleccionado " + cantidadCuotas + " cuotas";
+padre.append(avisoCantidadCuotas);
+
 
 // Designamos una funcion para dividir
 
@@ -84,9 +113,15 @@ let resultado = montoCuota(monto, cantidadCuotas);
 
 // Mostramos el resultado de la variable
 
-console.log(" Usted debera pagar " + cantidadCuotas + " cuotas de " + resultado + " pesos");
+console.log("Usted debera pagar " + cantidadCuotas + " cuotas de " + resultado + " pesos");
 
 console.log("Muchas gracias por usar nuestros servicios");
+
+// Proceso de creacion de elemento para incorporar al HTML
+
+let avisoMontoPagar = document.createElement("p");
+avisoMontoPagar.innerHTML = "Usted debera pagar " + cantidadCuotas + " cuotas de " + resultado + " pesos. Muchas gracias por usar nuestros servicios"
+padre.append(avisoMontoPagar);
 
 // Asignamos una variable con la puntuacion del usuario
 
@@ -100,6 +135,26 @@ if(opinion == 10){
 else{
     console.log("Seguiremos trabajando, gracias por puntuar");
 }
+
+
+// Creamos una nueva variable para incorporar un elemento al HTML
+
+let saludoFinal = document.createElement("p");
+
+// Armamos un IF para colocarle un contenido diferente a la etiqueta "p" segun el la respuesta del cliente a la puntuación
+
+if(opinion == 10){
+    saludoFinal.innerHTML = "Muchas gracias !!!!!";
+}
+else{
+    saludoFinal.innerHTML = "Seguiremos trabajando, gracias por puntuar";
+}
+
+// Le asignamos un padre al elemento
+
+padre.append(saludoFinal);
+
+
 
 
 
